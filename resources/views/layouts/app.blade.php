@@ -14,12 +14,13 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     @vite(['resources/js/app.js'])
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-bs5.css" rel="stylesheet">
 
 </head>
 <body>
     <div id="app">
         {{-- Navbar --}}
-        @include('layouts.components.navbar')
+        @include('components.navbar')
 
         <main class="py-4">
             @yield('content')
