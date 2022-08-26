@@ -8,19 +8,24 @@
         </div> 
     </div>
 
-    <form action="">
+    <form action="/article/save" method="POST">
+        @csrf
         <div class="row">
             <div class="col text-center">
-                <input type="text" class="form-control my-2" id="article_title" placeholder="Dawaj tu kozacki tytuł">
+                <input type="text" name='title' class="form-control my-2" id="article_title" placeholder="Dawaj tu kozacki tytuł">
             </div> 
         </div>
     
-        <textarea id="default-editor">
+        <textarea id="default-editor" name='content'>
     
         </textarea>
-       
+        <div class="row">
+            <div class="col text-end">
+                <button id='submit-article' class='btn btn-primary mt-2'>Send</button>
+            </div>
+        </div>
     </form>
-    <button id='submit-article'>SUBMIT</button>
+  
 </div>
 @endsection
 
@@ -31,14 +36,9 @@
   tinymce.init({
     selector: 'textarea#default-editor',
     plugins: 'table lists save media',
-    toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright |  bullist numlist | table',
-    menubar: 'insert',
+    toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright |  bullist numlist | table | media',
+    menubar: false,
     statusbar: false,
   });
-
-$('#submit-article').on('click', function(){
-console.debug(tinymce.activeEditor.getContent());
-});
-
 </script>
 @endsection

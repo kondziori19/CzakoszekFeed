@@ -19,7 +19,5 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
-Route::get('/article', function () {
-    return view('add_article');
-});
+Route::get('/article', [App\Http\Controllers\ArticleController::class, 'index'])->name('article');
+Route::post('/article/save', [App\Http\Controllers\ArticleController::class, 'save']);
