@@ -5,19 +5,19 @@
     <div class="row">
         <div class="col text-center">
             <h1>Dodaj nowy kontencik byczku!</h1>
-        </div> 
+        </div>
     </div>
 
     <form action="/article/save" method="POST">
         @csrf
         <div class="row">
             <div class="col text-center">
-                <input type="text" name='title' class="form-control my-2" id="article_title" placeholder="Dawaj tu kozacki tytuł">
-            </div> 
+                <input type="text" name='title' class="form-control my-2" id="article_title" placeholder="Dawaj tu kozacki tytuł" required>
+            </div>
         </div>
-    
-        <textarea id="default-editor" name='content'>
-    
+
+        <textarea id="default-editor" name='content' style='height: 60vh;'>
+
         </textarea>
         <div class="row">
             <div class="col text-end">
@@ -25,7 +25,7 @@
             </div>
         </div>
     </form>
-  
+
 </div>
 @endsection
 
