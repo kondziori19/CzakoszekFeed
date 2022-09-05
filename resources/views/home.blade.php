@@ -24,8 +24,7 @@ iframe{
             </div>
         </div>
         <div class="col-4">
-            <div class="sticky-top">
-
+            <div class="sticky-top" style="top: 80px;">
                 <a href='{{route('article')}}' class="btn btn-success btn-lg" style='width:100%'>Create Post</a>
                 <div class="border rounded my-5">
                     test2
