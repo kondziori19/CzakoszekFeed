@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -10,14 +12,19 @@
 
     <form action="/article/save" method="POST">
         @csrf
+        @isset($article)
+        <input type="hidden" name="id" value="{{$article->id}}">
+        @endisset
         <div class="row">
             <div class="col text-center">
-                <input type="text" name='title' class="form-control my-2" id="article_title" placeholder="Dawaj tu kozacki tytuł" required>
+                <input type="text" name='title' class="form-control my-2" id="article_title" placeholder="Dawaj tu kozacki tytuł" value="@isset($article){{$article->title}}@endisset" required>
             </div>
         </div>
 
         <textarea id="default-editor" name='content' style='height: 60vh;'>
-
+            @isset($article)
+            {{$article->content}}
+            @endisset
         </textarea>
         <div class="row">
             <div class="col text-end">

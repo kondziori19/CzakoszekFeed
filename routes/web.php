@@ -20,4 +20,5 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/article/add', [App\Http\Controllers\ArticleController::class, 'index'])->name('article');
+Route::get('/article/edit/{id}', [App\Http\Controllers\ArticleController::class, 'showEdit'])->name('article_edit');
 Route::post('/article/save', [App\Http\Controllers\ArticleController::class, 'save']);
