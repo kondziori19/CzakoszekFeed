@@ -11,8 +11,15 @@
                 </div>
             </div>
         </div>
-        <div class="card-body">
+        <div class="card-body" style="padding: 5px 5px;">
            {!! $article->content !!}
+        </div>
+        <div class="card-footer">
+            <div class="row">
+                <div class="col-2">Upvote Buttons</div>
+                <div class="col-10"><span class="float-end">Created by: <strong>{{$article->user_name}}</strong>, {{$article->time_till_creation}} ago</span></div>
+                {{-- <div class="col-1"><span class="float-end"></span></div> --}}
+            </div>
         </div>
     </div>
 </div>
