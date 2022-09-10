@@ -21,4 +21,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/article/add', [App\Http\Controllers\ArticleController::class, 'index'])->name('article');
 Route::get('/article/edit/{id}', [App\Http\Controllers\ArticleController::class, 'showEdit'])->name('article_edit');
+Route::get('/article/del/{id}', [App\Http\Controllers\ArticleController::class, 'delete'])->name('article_delete');
 Route::post('/article/save', [App\Http\Controllers\ArticleController::class, 'save']);

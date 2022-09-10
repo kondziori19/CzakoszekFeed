@@ -18,22 +18,27 @@ class ArticleController extends Controller
     {
         return view('add_article');
     }
-    
+
     public function showEdit($id)
     {
         $article = Article::where('id', $id)->first();
         return view('add_article',['article' => $article]);
     }
 
+    public function delete($id)
+    {
+        Article::destroy($id);
+        return redirect()->route('home');
+    }
 
     public function save(Request $request)
-    { 
+    {
         $id = $request->input('id');
         $title = $request->input('title');
         $content = $request->input('content');
         if(!empty($id)){
             $this->updateArticle($id, $title, $content);
-           
+
         }else{
             $this->createArticle($title, $content);
         }
@@ -45,7 +50,7 @@ class ArticleController extends Controller
         $article = Article::where('id', $id)->first();
         $article->title = $title;
         $article->content = $content;
-        
+
         $article->save();
     }
 
@@ -56,7 +61,8 @@ class ArticleController extends Controller
         $article->title = $title;
         $article->content = $content;
         $article->created_by = $userId;
-        
+
         $article->save();
     }
+
 }
