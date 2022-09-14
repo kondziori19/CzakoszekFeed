@@ -23,3 +23,5 @@ Route::get('/article/add', [App\Http\Controllers\ArticleController::class, 'inde
 Route::get('/article/edit/{id}', [App\Http\Controllers\ArticleController::class, 'showEdit'])->name('article_edit');
 Route::get('/article/del/{id}', [App\Http\Controllers\ArticleController::class, 'delete'])->name('article_delete');
 Route::post('/article/save', [App\Http\Controllers\ArticleController::class, 'save']);
+
+Route::get('/user/{id}', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
