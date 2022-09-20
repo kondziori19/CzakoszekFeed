@@ -2,11 +2,19 @@ body {
     background-color: rgb(195, 206, 216);
 }
 
-.sticky-top {
-    top: 75px;
-}
-
 .btn:hover {
     transform: scale(1.05);
 }
 
+img{
+    object-fit: cover;
+    width: 100% !important;
+    height: 500px !important;
+    }
+    
+iframe{
+    object-fit: fill;
+    display:block;
+    width:100% !important;
+    height: 500px !important;
+}

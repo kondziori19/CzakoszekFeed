@@ -18,7 +18,6 @@
             <div class="row">
                 <div class="col-2">Upvote Buttons</div>
                 <div class="col-10"><span class="float-end">Created by: <a href='{{route('profile',['id' => $article->id_user])}}'><strong>{{$article->user_name}}</strong></a>, {{$article->time_till_creation}} ago</span></div>
-                {{-- <div class="col-1"><span class="float-end"></span></div> --}}
             </div>
         </div>
     </div>
