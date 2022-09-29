@@ -13,15 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('articles', function (Blueprint $table) {
-            $table->id();
-            $table->integer('created_by');
-            $table->string('title');
-            $table->text('content')->nullable();
-            $table->integer('points')->default('0');
+        Schema::create('points', function (Blueprint $table) {
+            $table->tinyInteger('type');
+            $table->integer('id_article');
+            $table->integer('id_user');
+            $table->tinyInteger('value');
             $table->timestamps();
+
+            $table->primary(['type','id_article','id_user']);
         });
     }
+
 
     /**
      * Reverse the migrations.
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists('points');
     }
 };

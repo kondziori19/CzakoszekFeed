@@ -21,3 +21,7 @@
     </div>
 </div>
 @endsection
+
+@section('scripts')
+<script src='js/home.js' type="module"></script>
+@endsection

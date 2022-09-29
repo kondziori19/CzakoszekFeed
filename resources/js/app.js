@@ -4,4 +4,3 @@ import '../sass/app.scss'
 
 import '../css/app.css'
 
-import './home.js';

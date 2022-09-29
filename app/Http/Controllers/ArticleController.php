@@ -6,6 +6,8 @@ use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use App\Models\Article;
+use App\Models\Point;
+use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
@@ -46,7 +48,7 @@ class ArticleController extends Controller
         return redirect()->route('home');
     }
 
-    private function updateArticle($id, $title, $content) {
+    public function updateArticle($id, $title, $content) {
         $article = Article::where('id', $id)->first();
         $article->title = $title;
         $article->content = $content;
@@ -54,7 +56,7 @@ class ArticleController extends Controller
         $article->save();
     }
 
-    private function createArticle($title, $content) {
+    public function createArticle($title, $content) {
         $userId = Auth::id();
 
         $article = new Article;
@@ -63,6 +65,49 @@ class ArticleController extends Controller
         $article->created_by = $userId;
 
         $article->save();
+    }
+
+    public function vote(Request $request) {
+        $id_user = Auth::id();
+        $type = $request->input('type');
+        $id = $request->input('id');
+        $value = $request->input('value');
+
+        $point = Point::where('type','=',$type)
+                        ->where('id_article','=',$id)
+                        ->where('id_user','=',$id_user)
+                        ->first();
+        if(isset($point)){
+            DB::table('points')
+            ->where('type',$type)
+            ->where('id_article',$id)
+            ->where('id_user',$id_user)
+            ->update(['value' => $value,'updated_at' => date('Y-m-d h:i:s')]);
+        }else{
+            $point = new Point;
+            $point->type = $type;
+            $point->id_article = $id;
+            $point->id_user = $id_user;
+            $point->value = $value;
+            $point->save();
+        }
+       
+        return $this->updatePoints($id);
+    }
+
+    private function updatePoints($id_article){
+        $article = Article::where('id', $id_article)->first();
+
+        $points = Point::where('type', '1')->where('id_article',$id_article)->get();
+
+        $sum = 0;
+        foreach($points as $point){
+            $sum += (int) $point->value;
+        }
+
+        $article->points = $sum;
+        $article->save();
+        return $sum;
     }
 
 }

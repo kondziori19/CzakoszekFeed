@@ -18,3 +18,25 @@ iframe{
     width:100% !important;
     height: 500px !important;
 }
+
+.upvote{
+    display: inline-block;
+    font-size: 30px;
+    color:green;
+}
+
+.upvote:hover{
+    transform: scale(1.15);
+    cursor: pointer;
+}
+
+.downvote{
+    display: inline-block;
+    font-size: 30px;
+    color:red;
+}
+
+.downvote:hover{
+    transform: scale(1.15);
+    cursor: pointer;
+}

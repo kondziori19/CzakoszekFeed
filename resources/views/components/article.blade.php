@@ -18,8 +18,14 @@
         </div>
         <div class="card-footer">
             <div class="row">
-                <div class="col-2">Upvote Buttons</div>
-                <div class="col-10"><span class="float-end">Created by: <a href='{{route('profile',['id' => $article->id_user])}}'><strong>{{$article->user_name}}</strong></a>, {{$article->time_till_creation}} ago</span></div>
+                <div class="col-4">       
+                    <i id="upvote-{{$article->id}}" class="bi bi-caret-up upvote" data-id="{{$article->id}}"></i>
+                    <span id='points-{{$article->id}}' style="font-size: 25px;">{{$article->points}}</span>
+                    <i id="downvote-{{$article->id}}" class="bi bi-caret-down downvote" data-id="{{$article->id}}"></i>
+                </div>
+                <div class="col-8">
+                    <span class="float-end">Created by: <a href='{{route('profile',['id' => $article->id_user])}}'><strong>{{$article->user_name}}</strong></a>, {{$article->time_till_creation}} ago</span>
+                </div>
             </div>
         </div>
     </div>
