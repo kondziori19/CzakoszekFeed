@@ -91,7 +91,7 @@ class ArticleController extends Controller
             $point->value = $value;
             $point->save();
         }
-       
+
         return $this->updatePoints($id);
     }
 

@@ -1,12 +1,10 @@
 @extends('layouts.app')
 
-
-
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col text-center">
-            <h1>Dodaj nowy kontencik byczku!</h1>
+            <h1>Adding new post!</h1>
         </div>
     </div>
 
@@ -17,7 +15,7 @@
         @endisset
         <div class="row">
             <div class="col text-center">
-                <input type="text" name='title' class="form-control my-2" id="article_title" placeholder="Dawaj tu kozacki tytuł" value="@isset($article){{$article->title}}@endisset" required>
+                <input type="text" name='title' class="form-control my-2" id="article_title" placeholder="Enter interesting title here!" value="@isset($article){{$article->title}}@endisset" required>
             </div>
         </div>
 
